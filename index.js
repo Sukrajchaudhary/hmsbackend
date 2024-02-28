@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({ limit: "200mb", extended: true }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: true,
+    origin:"https://sukrajhms.netlify.app/",
     credentials: true,
     exposedHeaders:['X-Total-Count']
   })
