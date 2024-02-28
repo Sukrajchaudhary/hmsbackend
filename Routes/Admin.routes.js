@@ -13,7 +13,7 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage: storage, fieldname: "image" });
 const { isAuth } =require("../common/Common");
 router
-  .get("/admin/allappoinments",isAuth, GetAllUsersAppoinments)
+  .get("/admin/allappoinments", GetAllUsersAppoinments)
   .post("/admin/blog/create", upload.single("image"), CreateBlogs)
   .get("/admin/blog/:id", GetblogById)
   .patch("/admin/update/:id", UpdateBlogById)

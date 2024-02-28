@@ -35,7 +35,7 @@ app.use(
 );
 app.use("/api", userauthRouter.router);
 app.use("/api",isAuth, doctorRouter.router);
-app.use("/api",adminRouter.router)
+app.use("/api",isAuth,adminRouter.router)
 app.use("/api",isAuth, appoinmentRouter.router);
 app.use("/api",isAuth, userRouter.router);
 // Connect to the database and start the server
