@@ -28,15 +28,15 @@ app.use(bodyParser.urlencoded({ limit: "200mb", extended: true }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin:true,
+    origin: "http://localhost:3000",
     credentials: true,
     exposedHeaders:['X-Total-Count']
   })
 );
 app.use("/api", userauthRouter.router);
 app.use("/api",isAuth, doctorRouter.router);
-app.use("/api",isAuth,adminRouter.router)
-app.use("/api",isAuth, appoinmentRouter.router);
+app.use("/api",adminRouter.router)
+app.use("/api", appoinmentRouter.router);
 app.use("/api",isAuth, userRouter.router);
 // Connect to the database and start the server
 ConnectToDb()

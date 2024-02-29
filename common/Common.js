@@ -1,14 +1,15 @@
 const jwt = require("jsonwebtoken"); // Import jsonwebtoken package
 const nodemailer = require("nodemailer");
 exports.isAuth = (req, res, next) => {
-  const token = req.cookies["jwt"];
+  const token = req.headers["token"];
+  const logintoken = JSON.parse(token);
   if (!token) {
     return res
       .status(401)
       .send({ error: "Please authenticate using a valid token" });
   }
   try {
-    const data = jwt.verify(token, process.env.SECRETE);
+    const data = jwt.verify(logintoken.token, process.env.SECRETE);
     req.user = data;
     next();
   } catch (error) {

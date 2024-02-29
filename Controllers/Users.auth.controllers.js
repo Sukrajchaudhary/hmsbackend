@@ -76,7 +76,7 @@ exports.PasswordResetRequest = async (req, res) => {
       user.resetPassword = token;
       await user.save();
       const link =
-        "https://hmsbackend-axmf.onrender.com/api/reset-password?token=" +
+        "http://localhost:3000/api/reset-password?token=" +
         token +
         "&email=" +
         email;
