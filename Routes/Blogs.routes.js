@@ -7,7 +7,7 @@ const {
   UpdateBlogById,
   deleteBlogById,
   getAllblog,
-} = require("../Controllers/Admin.controller");
+} = require("../Controllers/Blogs.controllers");
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage, fieldname: "image" });
 router
