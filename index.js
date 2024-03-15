@@ -8,7 +8,8 @@ const userauthRouter = require("./Routes/Users.auth.routes");
 const userRouter = require("./Routes/User.routes");
 const doctorRouter = require("./Routes/Doctors.routes");
 const appoinmentRouter = require("./Routes/Appoinments.routes");
-const adminRouter=require('./Routes/Admin.routes')
+const adminRouter=require('./Routes/Admin.routes');
+const blogRouter=require("./Routes/Blogs.routes")
 const bodyParser = require("body-parser");
 const session = require("express-session");
 // Corrected import
@@ -34,10 +35,11 @@ app.use(
   })
 );
 app.use("/api", userauthRouter.router);
-app.use("/api",isAuth, doctorRouter.router);
+app.use("/api", doctorRouter.router);
 app.use("/api",adminRouter.router)
 app.use("/api", appoinmentRouter.router);
-app.use("/api",isAuth, userRouter.router);
+app.use("/api", userRouter.router);
+app.use("/api", blogRouter.router);
 // Connect to the database and start the server
 ConnectToDb()
   .then(() => {
